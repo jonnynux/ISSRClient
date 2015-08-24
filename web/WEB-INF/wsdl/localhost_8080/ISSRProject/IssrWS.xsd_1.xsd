@@ -1,0 +1,475 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.2-b13 (branches/2.2-6964; 2012-01-09T18:04:18+0000) JAXWS-RI/2.2.6-promoted-b20 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://webservices/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://webservices/">
+
+<xs:element name="BarcodeNotValidException" nillable="true" type="tns:FaultBean"/>
+
+<xs:element name="EmailNotValidException" nillable="true" type="tns:FaultBean"/>
+
+<xs:element name="ExpirationDateNotValidException" nillable="true" type="tns:FaultBean"/>
+
+<xs:element name="LoginError" nillable="true" type="tns:FaultBean"/>
+
+<xs:element name="LoginNotValidException" nillable="true" type="tns:FaultBean"/>
+
+<xs:element name="NoLogException" nillable="true" type="tns:FaultBean"/>
+
+<xs:element name="NoProductException" nillable="true" type="tns:FaultBean"/>
+
+<xs:element name="NoRolesException" nillable="true" type="tns:FaultBean"/>
+
+<xs:element name="NoStoresToView" nillable="true" type="tns:FaultBean"/>
+
+<xs:element name="NoUsersException" nillable="true" type="tns:FaultBean"/>
+
+<xs:element name="OperationNotPermitted" nillable="true" type="tns:FaultBean"/>
+
+<xs:element name="ProductTypeAlreadyPresent" nillable="true" type="tns:FaultBean"/>
+
+<xs:element name="QuantityNotValidException" nillable="true" type="tns:FaultBean"/>
+
+<xs:element name="RemovingNotExpiredProduct" nillable="true" type="tns:FaultBean"/>
+
+<xs:element name="RequiredFieldEmptyException" nillable="true" type="tns:FaultBean"/>
+
+<xs:element name="RoleNotValidException" nillable="true" type="tns:FaultBean"/>
+
+<xs:element name="SellingExpiredProduct" nillable="true" type="tns:FaultBean"/>
+
+<xs:element name="createProductType" type="tns:createProductType"/>
+
+<xs:element name="createProductTypeResponse" type="tns:createProductTypeResponse"/>
+
+<xs:element name="createUpdateUser" type="tns:createUpdateUser"/>
+
+<xs:element name="createUpdateUserResponse" type="tns:createUpdateUserResponse"/>
+
+<xs:element name="getExpiredProducts" type="tns:getExpiredProducts"/>
+
+<xs:element name="getExpiredProductsResponse" type="tns:getExpiredProductsResponse"/>
+
+<xs:element name="getGlobalIndexes" type="tns:getGlobalIndexes"/>
+
+<xs:element name="getGlobalIndexesResponse" type="tns:getGlobalIndexesResponse"/>
+
+<xs:element name="getLocalIndexes" type="tns:getLocalIndexes"/>
+
+<xs:element name="getLocalIndexesResponse" type="tns:getLocalIndexesResponse"/>
+
+<xs:element name="getLogList" type="tns:getLogList"/>
+
+<xs:element name="getLogListResponse" type="tns:getLogListResponse"/>
+
+<xs:element name="getLotByBarcode" type="tns:getLotByBarcode"/>
+
+<xs:element name="getLotByBarcodeResponse" type="tns:getLotByBarcodeResponse"/>
+
+<xs:element name="getProductTypes" type="tns:getProductTypes"/>
+
+<xs:element name="getProductTypesResponse" type="tns:getProductTypesResponse"/>
+
+<xs:element name="getReturnProducts" type="tns:getReturnProducts"/>
+
+<xs:element name="getReturnProductsResponse" type="tns:getReturnProductsResponse"/>
+
+<xs:element name="getRoles" type="tns:getRoles"/>
+
+<xs:element name="getRolesResponse" type="tns:getRolesResponse"/>
+
+<xs:element name="getSellProducts" type="tns:getSellProducts"/>
+
+<xs:element name="getSellProductsResponse" type="tns:getSellProductsResponse"/>
+
+<xs:element name="getStoreList" type="tns:getStoreList"/>
+
+<xs:element name="getStoreListResponse" type="tns:getStoreListResponse"/>
+
+<xs:element name="getUserList" type="tns:getUserList"/>
+
+<xs:element name="getUserListResponse" type="tns:getUserListResponse"/>
+
+<xs:element name="insertLot" type="tns:insertLot"/>
+
+<xs:element name="insertLotResponse" type="tns:insertLotResponse"/>
+
+<xs:element name="login" type="tns:login"/>
+
+<xs:element name="loginResponse" type="tns:loginResponse"/>
+
+<xs:element name="orderProduct" type="tns:orderProduct"/>
+
+<xs:element name="orderProductResponse" type="tns:orderProductResponse"/>
+
+<xs:element name="removeExpiredProducts" type="tns:removeExpiredProducts"/>
+
+<xs:element name="removeExpiredProductsResponse" type="tns:removeExpiredProductsResponse"/>
+
+<xs:element name="removeUser" type="tns:removeUser"/>
+
+<xs:element name="removeUserResponse" type="tns:removeUserResponse"/>
+
+<xs:element name="returnProducts" type="tns:returnProducts"/>
+
+<xs:element name="returnProductsResponse" type="tns:returnProductsResponse"/>
+
+<xs:element name="sellProducts" type="tns:sellProducts"/>
+
+<xs:element name="sellProductsResponse" type="tns:sellProductsResponse"/>
+
+<xs:complexType name="getSellProducts">
+<xs:sequence>
+<xs:element name="executor" type="tns:user" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="user">
+<xs:sequence>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="iduser" type="xs:int" minOccurs="0"/>
+<xs:element name="login" type="xs:string" minOccurs="0"/>
+<xs:element name="namesurname" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+<xs:element name="pwexpiration" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="regexpiration" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="role" type="tns:role" minOccurs="0"/>
+<xs:element name="sessionduration" type="xs:int" minOccurs="0"/>
+<xs:element name="store" type="tns:store" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="role">
+<xs:sequence>
+<xs:element name="generaladministrator" type="xs:boolean" minOccurs="0"/>
+<xs:element name="idrole" type="xs:int" minOccurs="0"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="store">
+<xs:sequence>
+<xs:element name="address" type="xs:string" minOccurs="0"/>
+<xs:element name="idstore" type="xs:int" minOccurs="0"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="piva" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getSellProductsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:lot" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="lot">
+<xs:sequence>
+<xs:element name="barcode" type="xs:string" minOccurs="0"/>
+<xs:element name="expiration" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="idlot" type="xs:int" minOccurs="0"/>
+<xs:element name="product" type="tns:product" minOccurs="0"/>
+<xs:element name="quantity" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="product">
+<xs:sequence>
+<xs:element name="brand" type="xs:string" minOccurs="0"/>
+<xs:element name="idproduct" type="xs:int" minOccurs="0"/>
+<xs:element name="store" type="tns:store" minOccurs="0"/>
+<xs:element name="tempexpired" type="xs:int"/>
+<xs:element name="temprequested" type="xs:int"/>
+<xs:element name="tempreturned" type="xs:int"/>
+<xs:element name="tempsold" type="xs:int"/>
+<xs:element name="tempstored" type="xs:int"/>
+<xs:element name="totexpired" type="xs:int"/>
+<xs:element name="totrequested" type="xs:int"/>
+<xs:element name="totreturned" type="xs:int"/>
+<xs:element name="totsold" type="xs:int"/>
+<xs:element name="totstored" type="xs:int"/>
+<xs:element name="type" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="FaultBean">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getStoreList">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getStoreListResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:store" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getLogList">
+<xs:sequence>
+<xs:element name="executor" type="tns:user" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getLogListResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:log" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="log">
+<xs:sequence>
+<xs:element name="activity" type="xs:string" minOccurs="0"/>
+<xs:element name="executor" type="xs:string" minOccurs="0"/>
+<xs:element name="idlog" type="xs:int"/>
+<xs:element name="instanttime" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="result" type="xs:boolean"/>
+<xs:element name="store" type="tns:store" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createProductType">
+<xs:sequence>
+<xs:element name="executor" type="tns:user" minOccurs="0"/>
+<xs:element name="brand" type="xs:string" minOccurs="0"/>
+<xs:element name="type" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createProductTypeResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getReturnProducts">
+<xs:sequence>
+<xs:element name="executor" type="tns:user" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getReturnProductsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:lot" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="removeUser">
+<xs:sequence>
+<xs:element name="executor" type="tns:user" minOccurs="0"/>
+<xs:element name="idUser" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="removeUserResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="login">
+<xs:sequence>
+<xs:element name="login" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+<xs:element name="idStore" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="loginResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:user" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="returnProducts">
+<xs:sequence>
+<xs:element name="executor" type="tns:user" minOccurs="0"/>
+<xs:element name="barcode" type="xs:string" minOccurs="0"/>
+<xs:element name="quantity" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="returnProductsResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getLocalIndexes">
+<xs:sequence>
+<xs:element name="executor" type="tns:user" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getLocalIndexesResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:index" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="index">
+<xs:sequence>
+<xs:element name="approvalIndex" type="xs:double"/>
+<xs:element name="approvalTempIndex" type="xs:double"/>
+<xs:element name="brand" type="xs:string" minOccurs="0"/>
+<xs:element name="expiredIndex" type="xs:double"/>
+<xs:element name="expiredTempIndex" type="xs:double"/>
+<xs:element name="returnedIndex" type="xs:double"/>
+<xs:element name="returnedTempIndex" type="xs:double"/>
+<xs:element name="successIndex" type="xs:double"/>
+<xs:element name="successTempIndex" type="xs:double"/>
+<xs:element name="type" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createUpdateUser">
+<xs:sequence>
+<xs:element name="executor" type="tns:user" minOccurs="0"/>
+<xs:element name="idUser" type="xs:int"/>
+<xs:element name="idStore" type="xs:int"/>
+<xs:element name="idRole" type="xs:int"/>
+<xs:element name="login" type="xs:string" minOccurs="0"/>
+<xs:element name="namesurname" type="xs:string" minOccurs="0"/>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="pwexpiration" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="regexpiration" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="sessionduration" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createUpdateUserResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getProductTypes">
+<xs:sequence>
+<xs:element name="executor" type="tns:user" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getProductTypesResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:product" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertLot">
+<xs:sequence>
+<xs:element name="executor" type="tns:user" minOccurs="0"/>
+<xs:element name="idProduct" type="xs:int"/>
+<xs:element name="barcode" type="xs:string" minOccurs="0"/>
+<xs:element name="quantity" type="xs:int"/>
+<xs:element name="expiration" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertLotResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getExpiredProducts">
+<xs:sequence>
+<xs:element name="executor" type="tns:user" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getExpiredProductsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:lot" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getLotByBarcode">
+<xs:sequence>
+<xs:element name="executor" type="tns:user" minOccurs="0"/>
+<xs:element name="barcode" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getLotByBarcodeResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:lot" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getGlobalIndexes">
+<xs:sequence>
+<xs:element name="executor" type="tns:user" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getGlobalIndexesResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:index" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="orderProduct">
+<xs:sequence>
+<xs:element name="executor" type="tns:user" minOccurs="0"/>
+<xs:element name="brand" type="xs:string" minOccurs="0"/>
+<xs:element name="type" type="xs:string" minOccurs="0"/>
+<xs:element name="quantity" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="orderProductResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getUserList">
+<xs:sequence>
+<xs:element name="executor" type="tns:user" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getUserListResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:user" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="removeExpiredProducts">
+<xs:sequence>
+<xs:element name="executor" type="tns:user" minOccurs="0"/>
+<xs:element name="barcode" type="xs:string" minOccurs="0"/>
+<xs:element name="quantity" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="removeExpiredProductsResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getRoles">
+<xs:sequence>
+<xs:element name="executor" type="tns:user" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getRolesResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:role" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sellProducts">
+<xs:sequence>
+<xs:element name="executor" type="tns:user" minOccurs="0"/>
+<xs:element name="barcode" type="xs:string" minOccurs="0"/>
+<xs:element name="quantity" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sellProductsResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

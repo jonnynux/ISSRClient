@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.2-b13 (branches/2.2-6964; 2012-01-09T18:04:18+0000) JAXWS-RI/2.2.6-promoted-b20 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://webservices/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://webservices/">
+
+<xs:element name="NoLogException" nillable="true" type="tns:FaultBean"/>
+
+<xs:element name="NoProductException" nillable="true" type="tns:FaultBean"/>
+
+<xs:element name="NoStoresToView" nillable="true" type="tns:FaultBean"/>
+
+<xs:element name="OperationNotPermitted" nillable="true" type="tns:FaultBean"/>
+
+<xs:element name="RequiredFieldEmptyException" nillable="true" type="tns:FaultBean"/>
+
+<xs:element name="getLogList" type="tns:getLogList"/>
+
+<xs:element name="getLogListResponse" type="tns:getLogListResponse"/>
+
+<xs:element name="getStoreList" type="tns:getStoreList"/>
+
+<xs:element name="getStoreListResponse" type="tns:getStoreListResponse"/>
+
+<xs:element name="orderProduct" type="tns:orderProduct"/>
+
+<xs:element name="orderProductResponse" type="tns:orderProductResponse"/>
+
+<xs:complexType name="getStoreList">
+<xs:sequence>
+<xs:element name="executor" type="tns:user" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="user">
+<xs:sequence>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="iduser" type="xs:int" minOccurs="0"/>
+<xs:element name="login" type="xs:string" minOccurs="0"/>
+<xs:element name="namesurname" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+<xs:element name="pwexpiration" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="regexpiration" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="role" type="tns:role" minOccurs="0"/>
+<xs:element name="sessionduration" type="xs:int" minOccurs="0"/>
+<xs:element name="store" type="tns:store" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="role">
+<xs:sequence>
+<xs:element name="generaladministrator" type="xs:boolean" minOccurs="0"/>
+<xs:element name="idrole" type="xs:int" minOccurs="0"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="store">
+<xs:sequence>
+<xs:element name="address" type="xs:string" minOccurs="0"/>
+<xs:element name="idstore" type="xs:int" minOccurs="0"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="piva" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getStoreListResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:store" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="FaultBean">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getLogList">
+<xs:sequence>
+<xs:element name="executor" type="tns:user" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getLogListResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:log" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="log">
+<xs:sequence>
+<xs:element name="activity" type="xs:string" minOccurs="0"/>
+<xs:element name="executor" type="xs:string" minOccurs="0"/>
+<xs:element name="idlog" type="xs:int"/>
+<xs:element name="instanttime" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="result" type="xs:boolean"/>
+<xs:element name="store" type="tns:store" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="orderProduct">
+<xs:sequence>
+<xs:element name="executor" type="tns:user" minOccurs="0"/>
+<xs:element name="brand" type="xs:string" minOccurs="0"/>
+<xs:element name="type" type="xs:string" minOccurs="0"/>
+<xs:element name="quantity" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="orderProductResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

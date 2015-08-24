@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+    <!-- Can you get Spring context everywhere -->
+    <bean id="contextApplicationContextProvider" class="utils.ApplicationContextProvider"></bean> 
+
+    <!-- WS Client Managers -->
+    <bean id="loginOperations" class="wsclientmanager.LoginManager" scope="session"/>
+    
+    <bean id="productOperations" class="wsclientmanager.ProductManager" scope="session"/>
+    
+    <bean id="storeOperations" class="wsclientmanager.StoreManager" scope="session"/>
+    
+    <bean id="userOperations" class="wsclientmanager.UserManager" scope="session"/>
+
+    <!-- View Managers -->
+    <bean id="loginManager" class="ui.managers.LoginManager" scope="session">
+        <property name="loginOperations" ref="loginOperations"/>
+        <property name="storeOperations" ref="storeOperations"/>
+    </bean>
+    
+    <bean id="productManager" class="ui.managers.ProductManager" scope="session">
+        <property name="productOperations" ref="productOperations"/>
+    </bean>
+    
+    <bean id="storeManager" class="ui.managers.StoreManager" scope="session">
+        <property name="storeOperations" ref="storeOperations"/>
+    </bean>
+    
+    <bean id="userManager" class="ui.managers.UserManager" scope="session">
+        <property name="userOperations" ref="userOperations"/>
+        <property name="storeOperations" ref="storeOperations"/>
+    </bean>
+    
+    <!-- Views -->
+    <bean id="PaginaPrincipale" class="ui.view.LoggedView" scope="request"/>
+    
+    <bean id="VendiProdotti" class="ui.view.ProductView" scope="request">
+        <constructor-arg value="SELL" />
+        <constructor-arg value="VendiProdotti" />
+    </bean>
+    
+    <bean id="EliminaProdottiScaduti" class="ui.view.ProductView" scope="request">
+        <constructor-arg value="EXPIRED" />
+        <constructor-arg value="EliminaProdottiScaduti" />
+    </bean>
+    
+    <bean id="RestituisciProdotti" class="ui.view.ProductView" scope="request">
+        <constructor-arg value="RETURN" />
+        <constructor-arg value="RestituisciProdotti" />
+    </bean>
+   
+    <bean id="IndiciLocali" class="ui.view.IndexesView" scope="request">
+        <constructor-arg value="LOCAL" />
+    </bean>
+        
+    <bean id="IndiciMaster" class="ui.view.IndexesView" scope="request">
+        <constructor-arg value="GLOBAL" />
+    </bean>
+    
+    <bean id="VisualizzaUtenti" class="ui.view.UserView" scope="request"/>
+    
+    <bean id="VisualizzaLog" class="ui.view.LogView" scope="request"/>
+    
+    <!-- SubWindows -->
+    <bean id="CreaTipoProdotto" class="ui.subwindow.CreateProductTypeSW" scope="request"/>
+    
+    <bean id="InserisciLotto" class="ui.subwindow.InsertLotSW" scope="request"/>
+    
+    <bean id="OrdinaProdotti" class="ui.subwindow.OrderProductsSW" scope="request"/>
+    
+    <bean id="CreaNuovoUtente" class="ui.subwindow.CreateModifyUserSW" scope="request"/>
+
+</beans>

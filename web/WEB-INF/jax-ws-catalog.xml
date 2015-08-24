@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/ISSRProject/IssrWS?wsdl" uri="wsdl/localhost_8080/ISSRProject/IssrWS.wsdl"/>
+    <system systemId="http://localhost:8080/ISSRProject/IssrWS?xsd=1" uri="wsdl/localhost_8080/ISSRProject/IssrWS.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/ISSRProject/UserWS?wsdl" uri="wsdl/localhost_8080/ISSRProject/UserWS.wsdl"/>
+    <system systemId="http://localhost:8080/ISSRProject/UserWS?xsd=1" uri="wsdl/localhost_8080/ISSRProject/UserWS.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/ISSRProject/ProductWS?wsdl" uri="wsdl/localhost_8080/ISSRProject/ProductWS.wsdl"/>
+    <system systemId="http://localhost:8080/ISSRProject/ProductWS?xsd=1" uri="wsdl/localhost_8080/ISSRProject/ProductWS.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/ISSRProject/StoreWS?wsdl" uri="wsdl/localhost_8080/ISSRProject/StoreWS.wsdl"/>
+    <system systemId="http://localhost:8080/ISSRProject/StoreWS?xsd=1" uri="wsdl/localhost_8080/ISSRProject/StoreWS.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/ISSRProject/LoginWS?wsdl" uri="wsdl/localhost_8080/ISSRProject/LoginWS.wsdl"/>
+    <system systemId="http://localhost:8080/ISSRProject/LoginWS?xsd=1" uri="wsdl/localhost_8080/ISSRProject/LoginWS.xsd_1.xsd"/>
+</catalog>
